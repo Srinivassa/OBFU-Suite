@@ -225,7 +225,7 @@ A released variant must satisfy:
 
 
 # Repository Structure
-
+```text
 OBFU-Suite/
 ├── PROTECTS/
 │   ├── RTL/
@@ -245,7 +245,7 @@ OBFU-Suite/
 ├── documentation/
 ├── LICENSE
 └── README.md
-
+```
 Each methodology contains datasets generated using:
 
 - 4 balanced key patterns
