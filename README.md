@@ -6,7 +6,6 @@
 
 It is designed to support reproducible hardware-security research, benchmark comparison, and cross-abstraction security evaluation.
 
----
 
 ## Why OBFU-Suite?
 
@@ -22,8 +21,6 @@ To mitigate these threats, numerous **High-Level Synthesis (HLS)** and **Registe
 Recent advances in **Machine Learning (ML)** and **Deep Learning (DL)** have shown the potential to compromise many hardware-security mechanisms. While gate-level security research benefits from standardized benchmark resources such as **Trust-Hub**, **no common benchmark previously existed for evaluating HLS/RTL obfuscation techniques under a unified and reproducible framework**.
 
 **OBFU-Suite addresses this gap** by providing a standardized benchmark generation and validation framework for HLS/RTL hardware obfuscation, together with corresponding technology-mapped gate-level netlists for cross-abstraction security evaluation.
-
----
 
 ## Features
 
@@ -42,7 +39,7 @@ Recent advances in **Machine Learning (ML)** and **Deep Learning (DL)** have sho
   - Oracle-less attacks
   - Cross-abstraction RTL-to-gate-level security analysis
 
----
+
 
 # Benchmark Configuration
 
@@ -83,7 +80,7 @@ Every benchmark is generated using four protection levels.
 | **75%** | High obfuscation coverage |
 | **100%** | Full obfuscation coverage |
 
----
+
 
 ## Dataset Size
 
@@ -99,7 +96,6 @@ OBFU-Suite contains:
 
 This results in a large-scale benchmark suitable for ML/DL training, testing, and reproducible security evaluation.
 
----
 
 # Included Obfuscation Methodologies
 
@@ -118,7 +114,7 @@ OBFU-Suite currently includes four representative HLS/RTL obfuscation methodolog
 - 5,000 RTL variants per key pattern
 - Corresponding technology-mapped gate-level netlists
 
----
+
 
 ## KOIL
 
@@ -133,7 +129,7 @@ OBFU-Suite currently includes four representative HLS/RTL obfuscation methodolog
 - 5,000 RTL variants per key pattern
 - Corresponding technology-mapped gate-level netlists
 
----
+
 
 ## ILP
 
@@ -148,7 +144,7 @@ OBFU-Suite currently includes four representative HLS/RTL obfuscation methodolog
 - 5,000 RTL variants per key pattern
 - Corresponding technology-mapped gate-level netlists
 
----
+
 
 ## ASSURE
 
@@ -163,7 +159,6 @@ OBFU-Suite currently includes four representative HLS/RTL obfuscation methodolog
 - 5,000 RTL variants per key pattern
 - Corresponding technology-mapped gate-level netlists
 
----
 
 # Benchmark Domains
 
@@ -178,13 +173,11 @@ OBFU-Suite includes benchmark designs from multiple application domains.
 
 This diversity enables evaluation across structurally different hardware applications.
 
----
 
 # RTL-to-Gate-Level Benchmark Flow
 
 Every released benchmark maintains a one-to-one correspondence between RTL and gate-level representations.
 
-```text
 Golden RTL
       │
       ├──────────────► Golden Gate-Level Netlist
@@ -206,11 +199,10 @@ Technology-Mapped Gate-Level Netlist
       │
       ▼
 Gate-Level Validation & Simulation
-```
+
 
 This organization enables security evaluation **before and after synthesis**.
 
----
 
 # Validation Pipeline
 
@@ -231,41 +223,34 @@ A released variant must satisfy:
 - Incorrect-key distinguishability
 - RTL-to-gate-level functional consistency
 
----
 
 # Repository Structure
 
-```text
 OBFU-Suite/
 ├── PROTECTS/
 │   ├── RTL/
-│   ├── Gate-Level/
-│   └── Configurations/
+│   └── Gate-Level/
+│  
 │
 ├── KOIL/
 │   ├── RTL/
-│   ├── Gate-Level/
-│   └── Configurations/
+│   └── Gate-Level/
 │
 ├── ILP/
 │   ├── RTL/
-│   ├── Gate-Level/
-│   └── Configurations/
+│   └── Gate-Level/
 │
 ├── ASSURE/
 │   ├── RTL/
-│   ├── Gate-Level/
-│   └── Configurations/
+│   └── Gate-Level/
 │
 ├── scripts/
 │   ├── generation/
-│   ├── synthesis/
-│   └── validation/
+│   └── Gate-Level/
 │
 ├── documentation/
 ├── LICENSE
 └── README.md
-```
 
 Each methodology contains datasets generated using:
 
@@ -273,8 +258,6 @@ Each methodology contains datasets generated using:
 - 4 obfuscation coverage levels
 - 5,000 structurally unique RTL variants per configuration
 - Corresponding validated gate-level netlists
-
----
 
 # Research Applications
 
@@ -289,8 +272,6 @@ OBFU-Suite supports research on:
 - Cross-abstraction RTL-to-gate-level security evaluation
 - Attack-versus-defense benchmarking
 
----
-
 # Benchmark Release
 
 **GitHub Release**
@@ -299,8 +280,6 @@ OBFU-Suite supports research on:
 
 GitHub Release:
 https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite
-
----
 
 # Citation
 
@@ -314,15 +293,10 @@ If you use **OBFU-Suite** in your research, please cite:
   howpublished = {\url{https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite}},
   note         = {GitHub benchmark release}
 }
-```
-
----
 
 # License
 
 Please refer to the **LICENSE** file for usage, modification, and redistribution terms.
-
----
 
 # Contact
 
