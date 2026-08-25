@@ -230,24 +230,18 @@ OBFU-Suite/
 ├── PROTECTS/
 │   ├── RTL/
 │   └── Gate-Level/
-│  
-│
 ├── KOIL/
 │   ├── RTL/
 │   └── Gate-Level/
-│
 ├── ILP/
 │   ├── RTL/
 │   └── Gate-Level/
-│
 ├── ASSURE/
 │   ├── RTL/
 │   └── Gate-Level/
-│
 ├── scripts/
 │   ├── generation/
 │   └── Gate-Level/
-│
 ├── documentation/
 ├── LICENSE
 └── README.md
