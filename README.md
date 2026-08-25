@@ -178,6 +178,7 @@ This diversity enables evaluation across structurally different hardware applica
 
 Every released benchmark maintains a one-to-one correspondence between RTL and gate-level representations.
 
+```text
 Golden RTL
       │
       ├──────────────► Golden Gate-Level Netlist
@@ -199,6 +200,7 @@ Technology-Mapped Gate-Level Netlist
       │
       ▼
 Gate-Level Validation & Simulation
+```
 
 
 This organization enables security evaluation **before and after synthesis**.
