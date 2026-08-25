@@ -206,6 +206,8 @@ Gate-Level Validation & Simulation
 This organization enables security evaluation **before and after synthesis**.
 
 
+---
+
 # Validation Pipeline
 
 Every benchmark variant is automatically validated before being included in OBFU-Suite.
@@ -224,6 +226,9 @@ A released variant must satisfy:
 - Authorized-key functional correctness
 - Incorrect-key distinguishability
 - RTL-to-gate-level functional consistency
+
+---
+
 
 
 # Repository Structure
