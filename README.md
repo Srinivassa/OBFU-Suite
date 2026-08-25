@@ -1,431 +1,391 @@
-# OBFU-Suite
+OBFU-Suite
+An Obfuscation Benchmark for Unified HLS/RTL and Gate-Level Security Assessment
 
-### An Obfuscation Benchmark for Unified HLS/RTL and Gate-Level Security Assessment
+OBFU-Suite is a configurable and reproducible benchmark suite for security evaluation of HLS/RTL hardware obfuscation. The suite provides structurally diverse obfuscated RTL variants together with corresponding technology-mapped gate-level netlists, enabling security evaluation across multiple design abstractions.
 
-OBFU-Suite is a configurable and reproducible benchmark suite for evaluating
-hardware obfuscation techniques at the HLS/RTL and gate levels. The suite is
-designed to provide a common experimental foundation for security evaluation
-of obfuscated hardware designs and to enable systematic investigation of
-security properties across design abstractions.
+1. Motivation
 
-The benchmark suite incorporates representative state-of-the-art (SOTA)
-obfuscation methodologies and provides structurally diverse RTL benchmark
-variants across multiple obfuscation coverage levels and key configurations.
-For each validated RTL variant, the corresponding technology-mapped
-gate-level netlist is also provided.
+The globalization of the semiconductor supply chain has made hardware Intellectual Property (IP) increasingly vulnerable to threats such as IP piracy, reverse engineering, hardware Trojans, and malicious modifications. To address these threats, numerous High-Level Synthesis (HLS) and Register Transfer Level (RTL) hardware-obfuscation techniques have been proposed.
 
----
+Recent advances in Machine Learning (ML) and Deep Learning (DL) have demonstrated the potential to compromise hardware-security mechanisms through automated analysis of structural and functional characteristics. However, unlike the gate-level domain, where publicly available benchmark resources such as Trust-Hub have supported systematic hardware-security evaluation, standardized benchmark resources for evaluating attacks against HLS/RTL obfuscation remain limited.
 
-## Key Features
+As a result, researchers often construct their own datasets using different designs, obfuscation methodologies, key configurations, and generation procedures. Such differences make fair comparison, reproducibility, and systematic benchmarking difficult.
 
-- Configurable HLS/RTL hardware-obfuscation benchmarks
-- Representative state-of-the-art obfuscation methodologies
-- Multiple obfuscation coverage levels
-- Multiple key configurations
-- Structurally diverse obfuscated RTL variants
-- Corresponding technology-mapped gate-level netlists
-- Automated RTL synthesis validation
-- Independent gate-level netlist validation
-- RTL-level functional validation
-- Gate-level simulation validation
-- Authorized-key functional-correctness checking
-- Incorrect-key distinguishability checking
-- Cross-abstraction RTL and gate-level security evaluation
-- Reproducible benchmark-generation and validation flow
+OBFU-Suite addresses this gap by providing a unified benchmark framework for HLS/RTL hardware obfuscation, incorporating multiple state-of-the-art obfuscation methodologies under a common generation and validation methodology. In addition to RTL-level artifacts, the suite provides corresponding technology-mapped gate-level netlists, enabling investigation of whether obfuscation properties established at the HLS/RTL level remain effective after synthesis.
 
----
+2. Features
 
-## Motivation
+OBFU-Suite provides:
 
-Hardware-security research at the gate level benefits from established
-benchmark resources for evaluating obfuscation and attack methodologies.
-However, comparable standardized and reproducible resources for HLS/RTL-level
-hardware obfuscation remain limited.
+Standardized benchmark resources for HLS/RTL hardware obfuscation
+Multiple representative state-of-the-art obfuscation methodologies
+Structurally diverse but functionally validated RTL variants
+Multiple obfuscation coverage levels
+Multiple key configurations
+Corresponding technology-mapped gate-level netlists
+Automated RTL synthesis validation
+Independent gate-level netlist validation
+RTL-level functional validation
+Gate-level simulation validation
+Authorized-key functional-correctness validation
+Incorrect-key distinguishability validation
+Cross-abstraction RTL and gate-level evaluation
+Support for conventional hardware-security analysis
+Support for emerging ML/DL-based attack and defense research
+Reproducible benchmark-generation and validation procedures
+3. Benchmark Configuration
 
-OBFU-Suite addresses this gap by providing benchmark variants at both the
-HLS/RTL and technology-mapped gate levels. This organization enables
-researchers to evaluate whether security properties introduced at the
-HLS/RTL level remain effective after synthesis and under gate-level analysis.
+OBFU-Suite uses a common configuration framework across the supported obfuscation methodologies. This enables controlled comparison while preserving the characteristics of the individual obfuscation techniques.
 
-The suite is intended to support both conventional hardware-security
-methodologies and emerging data-driven approaches, including machine-learning
-(ML) and deep-learning (DL)-based attack and defense techniques.
+3.1 Key Configurations
 
----
+The benchmark uses four balanced key patterns:
 
-## Benchmark Organization
+01010101...
+10101010...
+01100110...
+10011001...
 
-Each benchmark in OBFU-Suite is organized around an original golden design
-and its corresponding obfuscated variants.
+Each key contains an equal number of 0s and 1s, providing balanced key configurations for controlled experimental evaluation.
 
-The benchmark organization follows:
+The key configurations are applied consistently across the supported obfuscation methodologies and coverage levels.
 
-    Golden RTL
-        |
-        +----------------------+
-        |                      |
-        v                      v
-    Obfuscation           Original Design
+3.2 Obfuscation Coverage
+
+Each supported methodology is evaluated at four obfuscation coverage levels:
+
+Coverage	Description
+25%	Low obfuscation coverage
+50%	Medium obfuscation coverage
+75%	High obfuscation coverage
+100%	Full obfuscation coverage
+
+The coverage level controls the proportion of eligible operations selected for obfuscation according to the corresponding methodology.
+
+4. Dataset Generation
+
+For each supported obfuscation methodology, benchmark variants are generated using controlled combinations of:
+
+Benchmark design
+Obfuscation methodology
+Obfuscation coverage
+Key configuration
+Obfuscation parameters
+
+The generation framework produces functionally equivalent but structurally diverse obfuscated RTL variants.
+
+The authorized-key configuration preserves the intended functionality of the original design, while different valid configurations can produce structurally distinct implementations.
+
+5. Included Obfuscation Methodologies
+
+OBFU-Suite incorporates representative state-of-the-art HLS/RTL obfuscation methodologies.
+
+5.1 PROTECTS
+
+Reference:
+
+PROTECTS: Progressive RTL Obfuscation with Threshold Control Technique During Architectural Synthesis.
+
+Configuration:
+
+4 balanced key patterns
+25%, 50%, 75%, and 100% obfuscation coverage
+Structurally diverse obfuscated RTL variants
+Corresponding technology-mapped gate-level netlists
+5.2 KOIL
+
+Reference:
+
+High-Level Synthesis of Key-Obfuscated RTL IP with Design Lockout and Camouflaging.
+
+Configuration:
+
+4 balanced key patterns
+25%, 50%, 75%, and 100% obfuscation coverage
+Structurally diverse obfuscated RTL variants
+Corresponding technology-mapped gate-level netlists
+5.3 ILP
+
+Reference:
+
+Low Cost Functional Obfuscation of Reusable IP Cores Used in Consumer Electronics Hardware Through Robust Locking.
+
+Configuration:
+
+4 balanced key patterns
+25%, 50%, 75%, and 100% obfuscation coverage
+Structurally diverse obfuscated RTL variants
+Corresponding technology-mapped gate-level netlists
+5.4 ASSURE
+
+Reference:
+
+ASSURE: RTL Locking Against an Untrusted Foundry.
+
+Configuration:
+
+4 balanced key patterns
+25%, 50%, 75%, and 100% obfuscation coverage
+Structurally diverse obfuscated RTL variants
+Corresponding technology-mapped gate-level netlists
+6. Benchmark Domains
+
+OBFU-Suite contains representative designs from multiple application domains, including:
+
+Signal Processing
+Image Processing
+Video Processing
+Computer Graphics
+
+The diversity of the benchmark collection is intended to reduce dependence on a single application class and provide structurally different designs for security evaluation.
+
+7. RTL and Gate-Level Artifacts
+
+OBFU-Suite provides two complementary design abstractions.
+
+RTL Level
+
+The RTL portion contains:
+
+Golden RTL designs
+Obfuscated RTL variants
+Key configurations
+Obfuscation coverage information
+Gate Level
+
+For validated RTL variants, the corresponding:
+
+Technology-mapped gate-level Verilog netlists
+Target standard-cell implementations
+RTL-to-gate-level correspondence
+
+are provided.
+
+This organization enables researchers to study security both before and after synthesis.
+
+8. RTL-to-Gate-Level Generation
+
+The gate-level representations are generated using the prescribed Yosys--ABC flow and the target 45-nm standard-cell library.
+
+Obfuscated RTL
+       |
+       v
+Logic Synthesis
+       |
+       v
+ABC Technology Mapping
+       |
+       v
+Technology-Mapped
+Gate-Level Netlist
+
+The resulting gate-level Verilog contains technology-mapped standard-cell instances corresponding to the target library.
+
+9. Validation Methodology
+
+Every generated variant is subjected to automated validation before being included in the released benchmark.
+
+9.1 RTL Synthesis Validation
+
+Each generated obfuscated RTL variant is processed using the prescribed Vivado 2026.1 synthesis flow.
+
+Generated RTL Variant
         |
         v
-    Obfuscated RTL Variant
+Vivado Synthesis
         |
-        v
-    RTL Validation
-        |
-        v
-    Technology Mapping
-        |
-        v
-    Gate-Level Netlist
-        |
-        v
-    Gate-Level Validation
-        |
-        v
-    Gate-Level Simulation
+   +----+----+
+   |         |
+ Pass      Fail
+   |         |
+ Retain    Reject
 
-The golden design provides the functional reference for validation, while
-each obfuscated variant represents a structurally modified implementation
-configured with a corresponding key.
+A variant that fails the prescribed synthesis flow is automatically excluded and is not forwarded to subsequent functional validation.
 
----
+9.2 Gate-Level Netlist Validation
 
-## Design Abstractions
+The technology-mapped gate-level netlist generated using the prescribed Yosys--ABC flow is independently checked using the prescribed Quartus Prime Lite environment.
 
-OBFU-Suite provides benchmark artifacts at two design abstractions:
+Generated Gate-Level Netlist
+             |
+             v
+     Quartus Prime Lite
+             |
+       +-----+-----+
+       |           |
+      Pass        Fail
+       |           |
+     Retain      Reject
 
-### RTL Level
+This independent validation provides an additional tool-level consistency check for the released gate-level representations.
 
-The RTL-level benchmarks contain obfuscated Verilog representations generated
-using the prescribed obfuscation methodologies.
+9.3 RTL Simulation Validation
 
-Each variant is validated for:
+The synthesis-valid obfuscated RTL variant is simulated against its corresponding golden RTL design.
 
-1. RTL synthesizability
-2. Authorized-key functional correctness
-3. Incorrect-key functional distinguishability
+Authorized Key
 
-### Gate Level
+For the authorized key:
 
-Validated RTL variants are transformed into technology-mapped gate-level
-netlists using the prescribed RTL-to-gate-level synthesis flow.
+Golden RTL Output
+        =
+Obfuscated RTL Output
 
-The gate-level artifacts enable:
+for all prescribed validation stimuli.
 
-- Gate-level structural analysis
-- Gate-level security evaluation
-- Cross-abstraction attack studies
-- Evaluation of synthesis-induced structural transformations
+Incorrect Keys
 
----
+For representative incorrect keys, at least one distinguishing stimulus must expose an observable output deviation:
 
-## Obfuscation Coverage
+Golden RTL Output
+        ≠
+Obfuscated RTL Output
 
-The suite provides benchmark variants across multiple obfuscation coverage
-levels.
+Variants that fail either criterion are rejected.
 
-Typical coverage configurations include:
+9.4 Gate-Level Simulation Validation
 
-| Coverage | Description |
-|----------|-------------|
-| 25% | Low obfuscation coverage |
-| 50% | Medium obfuscation coverage |
-| 75% | High obfuscation coverage |
-| 100% | Full obfuscation coverage |
+Gate-level simulation provides an additional functional validation after synthesis.
 
-The exact available coverage levels depend on the benchmark and
-obfuscation methodology.
+The corresponding golden and obfuscated gate-level representations are simulated using identical input stimuli and key configurations.
 
----
+Authorized Key
+Golden Gate Output
+        =
+Obfuscated Gate Output
+Incorrect Key
+Golden Gate Output
+        ≠
+Obfuscated Gate Output
 
-## Key Configurations
+at least for one prescribed distinguishing stimulus.
 
-OBFU-Suite provides configurable key settings associated with the selected
-obfuscation methodology.
+This stage verifies that the required functional behavior and key-dependent behavior are preserved after RTL-to-gate-level synthesis.
 
-Key configurations are provided together with the corresponding benchmark
-variants to enable controlled evaluation of:
-
-- Key-dependent behavior
-- Key-space characteristics
-- Security vulnerabilities
-- Attack effectiveness
-- Generalization across variants
-
----
-
-## Benchmark Domains
-
-The suite contains representative benchmarks from multiple application
-domains, including:
-
-- Signal Processing
-- Image Processing
-- Video Processing
-- Computer Graphics
-
-The benchmark collection is intended to provide structural and functional
-diversity rather than being restricted to a single application class.
-
----
-
-## Validation Methodology
-
-Every generated benchmark variant is subjected to an automated validation
-pipeline before release.
-
-### 1. RTL Synthesis Validation
-
-Each generated obfuscated RTL variant is processed using the prescribed
-Vivado synthesis environment.
-
-A variant is retained only if it successfully completes the prescribed
-synthesis flow.
-
-Variants that fail synthesis are automatically rejected.
-
-### 2. Gate-Level Netlist Validation
-
-The validated RTL variants are converted into technology-mapped gate-level
-netlists using the prescribed Yosys--ABC synthesis flow and the target
-standard-cell library.
-
-The generated gate-level netlists are independently checked using the
-prescribed Quartus Prime Lite environment.
-
-Netlists that fail the prescribed compilation/synthesis flow are excluded
-from the released gate-level benchmark set.
-
-### 3. RTL Simulation Validation
-
-The obfuscated RTL variant is simulated against the corresponding golden
-RTL design.
-
-Two conditions are evaluated:
-
-#### Authorized Key
-
-The obfuscated design must reproduce the golden design output for the
-prescribed validation stimuli.
-
-#### Incorrect Keys
-
-Representative incorrect keys must produce at least one observable output
-deviation from the golden design for the prescribed distinguishing stimuli.
-
-Variants that fail either condition are rejected.
-
-### 4. Gate-Level Simulation Validation
-
-The corresponding golden and obfuscated gate-level representations are
-simulated using identical input stimuli and key configurations.
-
-The following conditions are verified:
-
-- Authorized key: obfuscated gate-level output must match the golden
-  gate-level output.
-- Incorrect key: at least one observable output deviation must be exposed.
-
-This additional validation verifies that the intended functional and
-key-dependent behavior is preserved after RTL-to-gate-level synthesis.
-
----
-
-## RTL-to-Gate-Level Flow
-
-The gate-level artifacts are generated using the following synthesis flow:
-
-    Obfuscated RTL
-          |
-          v
-    Logic Synthesis
-          |
-          v
-    ABC Technology Mapping
-          |
-          v
-    45-nm Standard-Cell Library
-          |
-          v
-    Technology-Mapped
-    Gate-Level Netlist
-
-The resulting gate-level Verilog files contain technology-mapped
-standard-cell instances from the specified library.
-
----
-
-## Example Gate-Level Cells
-
-Depending on the benchmark, the technology-mapped netlists may contain
-standard-cell instances such as:
-
-- INV_X1
-- AND2_X1
-- OR2_X1
-- XOR2_X1
-- XNOR2_X1
-- NAND2_X1
-- NOR2_X1
-- Sequential standard cells
-
-The exact cell composition depends on the synthesized benchmark and the
-target library.
-
----
-
-## Repository Structure
-
-The repository is organized to separate benchmark sources, generated
-variants, gate-level artifacts, and supporting scripts.
+10. Dataset Organization
 
 A typical organization is:
 
-    OBFU-Suite/
-    |
-    +-- benchmarks/
-    |   +-- RTL/
-    |   +-- gate_level/
-    |
-    +-- obfuscation/
-    |   +-- methodology_1/
-    |   +-- methodology_2/
-    |
-    +-- configurations/
-    |
-    +-- scripts/
-    |   +-- generation/
-    |   +-- synthesis/
-    |   +-- validation/
-    |   +-- simulation/
-    |
-    +-- documentation/
-    |
-    +-- README.md
-    +-- LICENSE
+OBFU-Suite/
+│
+├── PROTECTS/
+│   ├── RTL/
+│   ├── Gate-Level/
+│   └── Configurations/
+│
+├── KOIL/
+│   ├── RTL/
+│   ├── Gate-Level/
+│   └── Configurations/
+│
+├── ILP/
+│   ├── RTL/
+│   ├── Gate-Level/
+│   └── Configurations/
+│
+├── ASSURE/
+│   ├── RTL/
+│   ├── Gate-Level/
+│   └── Configurations/
+│
+├── scripts/
+│   ├── generation/
+│   ├── synthesis/
+│   └── validation/
+│
+├── documentation/
+│
+├── LICENSE
+└── README.md
 
-The exact directory organization may vary with the released version.
+Important: change this tree to exactly match your actual GitHub repository. Do not show folders that do not exist in the release.
 
----
+11. Benchmark Traceability
 
-## Benchmark Naming
+Each released gate-level netlist maintains a one-to-one correspondence with its source obfuscated RTL variant.
 
-Each benchmark variant maintains a consistent identifier across the RTL and
-gate-level representations.
+Benchmark
+   |
+   +-- Golden RTL
+   |
+   +-- Obfuscated RTL Variant
+   |
+   +-- Key Configuration
+   |
+   +-- Coverage Level
+   |
+   +-- Gate-Level Netlist
 
-For example:
+This identifier-based organization enables traceability across design abstractions and supports reproducible cross-abstraction security experiments.
 
-    Benchmark_ID
-        |
-        +-- Obfuscated RTL Variant
-        |
-        +-- Technology-Mapped Gate-Level Netlist
+12. Research Applications
 
-This one-to-one correspondence provides traceability between design
-abstractions and supports reproducible cross-abstraction experiments.
+OBFU-Suite can support research on:
 
----
+Hardware Security
+HLS/RTL obfuscation
+RTL locking
+Logic locking
+Hardware IP protection
+Structural security analysis
+Attack Research
+Structural attacks
+Key-recovery attacks
+Oracle-based attacks
+Oracle-less attacks
+ML-based attacks
+DL-based attacks
+Graph-based attacks
+GNN-based attacks
+Cross-Abstraction Analysis
+RTL-to-gate-level security
+Synthesis-induced information leakage
+Gate-level structural analysis
+Cross-abstraction attack scenarios
+Security degradation after synthesis
+Benchmarking
+Attack-versus-defense evaluation
+Obfuscation-strength analysis
+Generalization studies
+Reproducibility studies
+Comparative security evaluation
+13. Tools and Environment
 
-## Reproducibility
+The benchmark-generation and validation framework uses the following tools:
 
-OBFU-Suite is designed to support reproducible hardware-security research.
+Tool	Purpose
+Vivado 2026.1	RTL synthesis validation
+Yosys	RTL synthesis and logic processing
+ABC	Logic optimization and technology mapping
+Nangate 45-nm Library	Technology mapping
+Quartus Prime Lite	Independent gate-level validation
+ModelSim	Functional/gate-level simulation
+Python	Automation and orchestration
+TCL	Simulation and tool-flow automation
 
-The release provides the benchmark artifacts together with the associated
-configuration information and generation/validation resources required to
-reproduce the reported benchmark organization.
+The exact tool versions and configurations associated with each benchmark release should be documented with the corresponding release.
 
-The recommended experimental setup uses the same:
+14. Reproducibility
 
-- Benchmark configuration
-- Obfuscation configuration
-- Key configuration
-- Obfuscation coverage
-- Synthesis environment
-- Standard-cell library
-- Validation configuration
+OBFU-Suite is designed to support reproducible hardware-security experiments.
 
-used for the released benchmark artifacts.
+The released artifacts are organized according to their:
 
----
+Benchmark
+Obfuscation methodology
+Coverage level
+Key configuration
+RTL variant
+Gate-level representation
 
-## Recommended Use Cases
+The validation process is automated to minimize manual intervention and ensure consistent benchmark admission.
 
-OBFU-Suite can be used for research on:
+A released variant is included only after satisfying the prescribed synthesis and functional validation criteria.
 
-### Hardware Obfuscation
+15. Release
 
-- Logic obfuscation
-- RTL obfuscation
-- HLS/RTL security
-- Key-based hardware protection
+The current OBFU-Suite benchmark release is available at:
 
-### Attack Evaluation
-
-- Structural attacks
-- Key-recovery attacks
-- Functional attacks
-- Machine-learning-based attacks
-- Deep-learning-based attacks
-
-### Cross-Abstraction Security
-
-- RTL-to-gate-level security analysis
-- Synthesis-induced information leakage
-- Gate-level structural analysis of RTL-protected designs
-- Cross-abstraction attack scenarios
-
-### Benchmarking
-
-- Attack-versus-defense comparison
-- Obfuscation-strength evaluation
-- Generalization studies
-- Reproducibility studies
-- Security evaluation across different design abstractions
-
----
-
-## Tools and Environment
-
-The benchmark-generation and validation flow uses the following tools and
-resources, depending on the benchmark-generation stage:
-
-| Tool / Resource | Purpose |
-|-----------------|---------|
-| Vivado 2026.1 | RTL synthesis validation |
-| Yosys | RTL synthesis and logic processing |
-| ABC | Logic optimization and technology mapping |
-| Nangate 45-nm Library | Technology mapping |
-| Quartus Prime Lite | Independent gate-level validation |
-| ModelSim | Gate-level / simulation validation |
-| Python | Automation and orchestration |
-| TCL | Simulation and tool-flow automation |
-
-Specific tool versions and configurations used for individual experiments
-are documented with the corresponding benchmark release.
-
----
-
-## Release
-
-The current benchmark release is available at:
+OBFU-Suite GitHub Release
 
 https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite
-
-The release contains the benchmark artifacts and associated resources
-required for the corresponding benchmark version.
-
----
-
-## Citation
-
-If you use OBFU-Suite in your research, please cite:
-
-```bibtex
-@misc{OBFUSuite,
-  author       = {Dara, Srinivasa Rao and Roy, Dipanjan and Kavati, Ilaiah},
-  title        = {{OBFU-Suite}: An Obfuscation Benchmark for Unified {HLS/RTL} and Gate-Level Security Assessment},
-  year         = {2026},
-  howpublished = {\url{https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite}},
-  note         = {GitHub benchmark release}
-}
