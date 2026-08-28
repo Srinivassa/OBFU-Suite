@@ -240,7 +240,11 @@ python Main_rtl.py \
 ```bash
 perl netlist_to_subgraphs.pl -f ASSURE_IIRB_100_obf-gate-sample -i ./circuit_datasets/ASSURE_IIRB_100_obf-gate-sample > log_build_exploit_ASSURE_IIRB_100_obf-gate-sample.txt
 ---
+
+
 ### 2. Model Training (Gate-Level) Train the GNN model using a 2-hop enclosing subgraph:
+
+
 Train the GNN model using a 2-hop enclosing subgraph:
 
 ```bash
