@@ -241,7 +241,7 @@ perl netlist_to_subgraphs.pl -f ASSURE_IIRB_100_obf-gate-sample -i ./circuit_dat
 ### 2. Model Training (Gate-Level) Train the GNN model using a 2-hop enclosing subgraph:
 Train the GNN model using a 2-hop enclosing subgraph:
 
----bash
+```bash
 python Main.py \
   --file-name ASSURE_IIRB_100_obf-gate \
   --links-name link.txt \
@@ -253,7 +253,7 @@ python Main.py \
   --num_layers 6 \
   --filename Release_ASSURE_IIRB_100_obf-gate_result_b64_h2_fan_6layers_hd64.txt \
   > Release_log_ASSURE_IIRB_100_obf-gate_b64_h2_6layers_hd64.txt
----
+```
 ### 3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
 
 
