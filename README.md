@@ -192,12 +192,12 @@ The generated gate-level and RTL-level graph datasets can be evaluated using gra
 
 ###1. Graph Extraction (RTL) Convert the RTL Verilog files into graph datasets:
 
----bash
+```bash
 perl netlist_to_subgraph_rtl.pl -f ASSURE_IIRB_100pct_1010 -i ./circuit_datasets/ASSURE_IIRB_100pct_1010 > log_build_exploit_ASSURE_IIRB_100pct_1010.txt
 ---
 ###2. Model Training (RTL) Train the GNN model using a 3-hop enclosing subgraph:
 
----bash:
+```bash:
 python Main_rtl.py \
   --file-name ASSURE_IIRB_100pct_1010 \
   --links-name link.txt \
@@ -215,7 +215,7 @@ python Main_rtl.py \
 ---
 ###3. Key-Bit Prediction (RTL) Evaluate the trained model on the unseen test graphs:
 
----bash
+```bash
 python Main_rtl.py \
   --file-name ASSURE_IIRB_100pct_1010 \
   --links-name link.txt \
@@ -235,7 +235,7 @@ python Main_rtl.py \
 Gate-Level Demonstration
 ### 1. Graph Extraction (Gate-Level) Convert the Gate-Level Verilog files into graph datasets:
 
----bash
+```bash
 perl netlist_to_subgraphs.pl -f ASSURE_IIRB_100_obf-gate-sample -i ./circuit_datasets/ASSURE_IIRB_100_obf-gate-sample > log_build_exploit_ASSURE_IIRB_100_obf-gate-sample.txt
 ---
 ### 2. Model Training (Gate-Level) Train the GNN model using a 2-hop enclosing subgraph:
