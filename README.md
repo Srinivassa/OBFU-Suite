@@ -185,6 +185,86 @@ simulation checks.
 Only variants satisfying the prescribed validation criteria are retained.
 
 ---
+Demonstration / Attack Framework Execution
+The generated gate-level and RTL-level graph datasets can be evaluated using graph-neural-network attack frameworks. Below are the commands to execute graph extraction, model training, and key-bit prediction.
+
+RTL-Level Demonstration
+1. Graph Extraction (RTL) Convert the RTL Verilog files into graph datasets:
+
+bash
+perl netlist_to_subgraph_rtl.pl -f ASSURE_IIRB_100pct_1010 -i ./circuit_datasets/ASSURE_IIRB_100pct_1010 > log_build_exploit_ASSURE_IIRB_100pct_1010.txt
+2. Model Training (RTL) Train the GNN model using a 3-hop enclosing subgraph:
+
+bash
+python Main_rtl.py \
+  --file-name ASSURE_IIRB_100pct_1010 \
+  --links-name link.txt \
+  --save-model \
+  --split-val \
+  --use-dis \
+  --batch_size 64 \
+  --hop 3 \
+  --num_layers 6 \
+  --num_mlp_layers 2 \
+  --hidden_dim 64 \
+  --final_dropout 0.5 \
+  --filename Release_ASSURE_IIRB_100pct_1010_result_b64_h3_fan_6layers_hd64.txt \
+  > log_train_ASSURE_IIRB_100pct_1010_rtl_3hop.txt 2>&1
+3. Key-Bit Prediction (RTL) Evaluate the trained model on the unseen test graphs:
+
+bash
+python Main_rtl.py \
+  --file-name ASSURE_IIRB_100pct_1010 \
+  --links-name link.txt \
+  --only-predict \
+  --split-val \
+  --use-dis \
+  --no-parallel \
+  --device 0 \
+  --batch_size 64 \
+  --hop 3 \
+  --num_layers 6 \
+  --num_mlp_layers 2 \
+  --hidden_dim 64 \
+  --final_dropout 0.5 \
+  > predict_ASSURE_IIRB_100pct_1010_rtl_b64_h3_6layers_hd64.txt 2>&1
+Gate-Level Demonstration
+1. Graph Extraction (Gate-Level) Convert the Gate-Level Verilog files into graph datasets:
+
+bash
+perl netlist_to_subgraphs.pl -f ASSURE_IIRB_100_obf-gate-sample -i ./circuit_datasets/ASSURE_IIRB_100_obf-gate-sample > log_build_exploit_ASSURE_IIRB_100_obf-gate-sample.txt
+2. Model Training (Gate-Level) Train the GNN model using a 2-hop enclosing subgraph:
+
+bash
+python Main.py \
+  --file-name ASSURE_IIRB_100_obf-gate \
+  --links-name link.txt \
+  --save-model \
+  --split-val \
+  --use-dis \
+  --batch_size 64 \
+  --hidden_dim 64 \
+  --num_layers 6 \
+  --filename Release_ASSURE_IIRB_100_obf-gate_result_b64_h2_fan_6layers_hd64.txt \
+  > Release_log_ASSURE_IIRB_100_obf-gate_b64_h2_6layers_hd64.txt
+3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
+
+bash
+python Main.py \
+  --file-name ASSURE_IIRB_100_obf-gate-sample \
+  --links-name link.txt \
+  --only-predict \
+  --no-parallel \
+  --device 0 \
+  --batch_size 64 \
+  --hidden_dim 64 \
+  --num_layers 6 \
+  --num_mlp_layers 3 \
+  --final_dropout 0.5 \
+  --hop 1 \
+  --graph_pooling_type sum \
+  --neighbor_pooling_type max
+
 
 ## Dataset Organization
 
