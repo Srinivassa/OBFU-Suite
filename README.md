@@ -188,7 +188,8 @@ Only variants satisfying the prescribed validation criteria are retained.
 Demonstration / Attack Framework Execution
 The generated gate-level and RTL-level graph datasets can be evaluated using graph-neural-network attack frameworks. Below are the commands to execute graph extraction, model training, and key-bit prediction.
 
-RTL-Level Demonstration
+## RTL-Level Demonstration
+
 1. Graph Extraction (RTL) Convert the RTL Verilog files into graph datasets:
 
 bash
