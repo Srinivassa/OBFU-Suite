@@ -188,7 +188,7 @@ Only variants satisfying the prescribed validation criteria are retained.
 Demonstration / Attack Framework Execution
 The generated gate-level and RTL-level graph datasets can be evaluated using graph-neural-network attack frameworks. Below are the commands to execute graph extraction, model training, and key-bit prediction.
 
-## RTL-Level Demonstration
+## RTL-Level Demonstration:
 
 1. Graph Extraction (RTL) Convert the RTL Verilog files into graph datasets:
 
@@ -197,7 +197,7 @@ perl netlist_to_subgraph_rtl.pl -f ASSURE_IIRB_100pct_1010 -i ./circuit_datasets
 ---
 2. Model Training (RTL) Train the GNN model using a 3-hop enclosing subgraph:
 
-bash
+bash:
 python Main_rtl.py \
   --file-name ASSURE_IIRB_100pct_1010 \
   --links-name link.txt \
