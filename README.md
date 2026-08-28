@@ -253,9 +253,8 @@ python Main.py \
   --filename Release_ASSURE_IIRB_100_obf-gate_result_b64_h2_fan_6layers_hd64.txt \
   > Release_log_ASSURE_IIRB_100_obf-gate_b64_h2_6layers_hd64.txt
 ---
-## 3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
+### 3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
 
-### 3. Key-Bit Prediction (Gate-Level)
 
 Evaluate the trained model on the unseen test graphs:
 
