@@ -255,7 +255,6 @@ python Main.py \
 ---
 ## 3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
 
-bash
 python Main.py \
   --file-name ASSURE_IIRB_100_obf-gate-sample \
   --links-name link.txt \
@@ -270,7 +269,6 @@ python Main.py \
   --hop 1 \
   --graph_pooling_type sum \
   --neighbor_pooling_type max
-  ---
 
 
 ## Dataset Organization
