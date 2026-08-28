@@ -232,7 +232,9 @@ python Main_rtl.py \
   --final_dropout 0.5 \
   > predict_ASSURE_IIRB_100pct_1010_rtl_b64_h3_6layers_hd64.txt 2>&1
 ---
-# Gate-Level Demonstration
+
+# Gate-Level Demonstration:
+
 ### 1. Graph Extraction (Gate-Level) Convert the Gate-Level Verilog files into graph datasets:
 
 ```bash
