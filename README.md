@@ -131,23 +131,41 @@ The benchmark-generation and validation flow uses:
 
 ---
 
+
 ## RTL-to-Gate-Level Generation
 
-The provided RTL variants can be converted into technology-mapped
-gate-level netlists using the Yosys--ABC flow.
+The provided obfuscated RTL variants can be converted into technology-mapped
+gate-level netlists using the Yosys–ABC synthesis flow and the provided
+standard-cell libraries.
 
-The synthesis flow is:
+The conversion flow is:
 
-    RTL
-     |
-     v
-    Logic Synthesis
-     |
-     v
-    ABC Technology Mapping
-     |
-     v
-    Technology-Mapped Gate-Level Netlist
+```text
+Obfuscated RTL
+      |
+      v
+Hierarchy Check and RTL Processing
+      |
+      v
+Optimization, Memory/FSM Processing
+      |
+      v
+Hierarchy Flattening
+      |
+      v
+Technology Mapping
+      |
+      v
+ABC Technology Mapping
+      |
+      v
+Flip-Flop Mapping
+      |
+      v
+MUX/INV Cell Cleanup
+      |
+      v
+Final Gate-Level Netlist
 
 The complete batch synthesis script is available under:
 
