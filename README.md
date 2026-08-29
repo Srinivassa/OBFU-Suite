@@ -243,14 +243,14 @@ Only variants satisfying the prescribed validation criteria are retained.
 Demonstration / Attack Framework Execution
 The generated gate-level and RTL-level graph datasets can be evaluated using graph-neural-network attack frameworks. Below are the commands to execute graph extraction, model training, and key-bit prediction.
 
-# RTL Demonstration:
+### RTL Demonstration:
 
-1. Graph Extraction (RTL) Convert the RTL Verilog files into graph datasets:
+## 1. Graph Extraction (RTL) Convert the RTL Verilog files into graph datasets:
 
 ```bash
 perl netlist_to_subgraph_rtl.pl -f ASSURE_IIRB_100pct_1010 -i ./circuit_datasets/ASSURE_IIRB_100pct_1010 > log_build_exploit_ASSURE_IIRB_100pct_1010.txt
 ```
-2. Model Training (RTL) Train the GNN model using a 3-hop enclosing subgraph:
+## 2. Model Training (RTL) Train the GNN model using a 3-hop enclosing subgraph:
 
 ```bash:
 python Main_rtl.py \
@@ -269,7 +269,7 @@ python Main_rtl.py \
   > log_train_ASSURE_IIRB_100pct_1010_rtl_3hop.txt 2>&1
 ```
 
-3. Key-Bit Prediction (RTL) Evaluate the trained model on the unseen test graphs:
+## 3. Key-Bit Prediction (RTL) Evaluate the trained model on the unseen test graphs:
 
 ```bash
 python Main_rtl.py \
@@ -289,16 +289,16 @@ python Main_rtl.py \
   > predict_ASSURE_IIRB_100pct_1010_rtl_b64_h3_6layers_hd64.txt 2>&1
 ```
 
-Gate-Level Demonstration:
+### Gate-Level Demonstration:
 
- 1. Graph Extraction (Gate-Level) Convert the Gate-Level Verilog files into graph datasets:
+## 1. Graph Extraction (Gate-Level) Convert the Gate-Level Verilog files into graph datasets:
 
 ```bash
 perl netlist_to_subgraphs.pl -f ASSURE_IIRB_100_obf-gate-sample -i ./circuit_datasets/ASSURE_IIRB_100_obf-gate-sample > log_build_exploit_ASSURE_IIRB_100_obf-gate-sample.txt
 ```
 
 
-2. Model Training (Gate-Level) Train the GNN model using a 2-hop enclosing subgraph:
+## 2. Model Training (Gate-Level) Train the GNN model using a 2-hop enclosing subgraph:
 
 
 Train the GNN model using a 2-hop enclosing subgraph:
@@ -316,7 +316,7 @@ python Main.py \
   --filename Release_ASSURE_IIRB_100_obf-gate_result_b64_h2_fan_6layers_hd64.txt \
   > Release_log_ASSURE_IIRB_100_obf-gate_b64_h2_6layers_hd64.txt
 ```
- 3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
+ ## 3. Key-Bit Prediction (Gate-Level) Evaluate the trained model on the unseen test graphs:
 
 
 Evaluate the trained model on the unseen test graphs:
