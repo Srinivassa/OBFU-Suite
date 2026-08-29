@@ -249,7 +249,7 @@ The generated gate-level and RTL-level graph datasets can be evaluated using gra
 
 ```bash
 perl netlist_to_subgraph_rtl.pl -f ASSURE_IIRB_100pct_1010 -i ./circuit_datasets/ASSURE_IIRB_100pct_1010 > log_build_exploit_ASSURE_IIRB_100pct_1010.txt
----
+```
 ###2. Model Training (RTL) Train the GNN model using a 3-hop enclosing subgraph:
 
 ```bash:
@@ -267,7 +267,8 @@ python Main_rtl.py \
   --final_dropout 0.5 \
   --filename Release_ASSURE_IIRB_100pct_1010_result_b64_h3_fan_6layers_hd64.txt \
   > log_train_ASSURE_IIRB_100pct_1010_rtl_3hop.txt 2>&1
----
+```
+
 ###3. Key-Bit Prediction (RTL) Evaluate the trained model on the unseen test graphs:
 
 ```bash
@@ -286,7 +287,7 @@ python Main_rtl.py \
   --hidden_dim 64 \
   --final_dropout 0.5 \
   > predict_ASSURE_IIRB_100pct_1010_rtl_b64_h3_6layers_hd64.txt 2>&1
----
+```
 
 ## RTL-Level Demonstration:
 
