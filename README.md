@@ -5,7 +5,7 @@
 This repository contains the benchmark artifacts and generation/validation
 resources associated with:
 
-Srinivasa Rao Dara, Dipanjan Roy, and Ilaiah Kavati,
+
 
 "OBFU-Suite: An Obfuscation Benchmark for Unified HLS/RTL and Gate-Level
 Security Assessment."
@@ -365,14 +365,6 @@ https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite
 
 If you use OBFU-Suite in your work, please cite:
 
-@misc{OBFUSuite,
-  author       = {Dara, Srinivasa Rao and Roy, Dipanjan and Kavati, Ilaiah},
-  title        = {{OBFU-Suite}: An Obfuscation Benchmark for Unified {HLS/RTL}
-                  and Gate-Level Security Assessment},
-  year         = {2026},
-  howpublished = {\url{https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite}},
-  note         = {GitHub benchmark release}
-}
 
 ---
 
