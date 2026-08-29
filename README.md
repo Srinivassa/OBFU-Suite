@@ -174,9 +174,43 @@ The complete batch synthesis script is available under:
 
 Run:
 
-    chmod +x scripts/synthesis/rtl_to_gate.sh
+For a single RTL design, the equivalent Yosys flow is:
 
-    ./scripts/synthesis/rtl_to_gate.sh
+```bash
+yosys -p "
+read_verilog example.v
+hierarchy -check -top example
+proc
+opt
+memory
+opt
+fsm
+opt
+flatten
+opt
+techmap
+opt
+simplemap
+opt
+abc -genlib Nangate_2input_X1.genlib
+opt
+dfflibmap -liberty Nangate_2input_X1.lib
+opt
+techmap
+opt
+simplemap
+opt
+techmap -map remove_mux_inv.v
+opt
+techmap -map remove_inv.v
+opt
+techmap -map remove_inv.v
+opt
+clean
+check
+stat
+write_verilog -noattr -noexpr final_gate_output.v
+"
 
 Before execution, update the input, output, library, and mapping-file paths
 in the script for the local environment.
