@@ -132,7 +132,7 @@ The benchmark-generation and validation flow uses:
 ---
 
 
-## RTL-to-Gate-Level Generation
+### RTL-to-Gate-Level Generation
 
 The provided obfuscated RTL variants can be converted into technology-mapped
 gate-level netlists using the Yosys–ABC synthesis flow and the provided
@@ -171,7 +171,7 @@ The complete batch synthesis script is available under:
 
 ---
 
-
+ 
 Run:
 
 For a single RTL design, the equivalent Yosys flow is:
@@ -211,11 +211,11 @@ check
 stat
 write_verilog -noattr -noexpr final_gate_output.v
 "
-
+```
 Before execution, update the input, output, library, and mapping-file paths
 in the script for the local environment.
 
----
+
 
 ## Validation
 
