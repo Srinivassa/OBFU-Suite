@@ -167,11 +167,13 @@ MUX/INV Cell Cleanup
       v
 Final Gate-Level Netlist
 
+
+```
+
+
 The complete batch synthesis script is available under:
 
----
 
- 
 Run:
 
 For a single RTL design, the equivalent Yosys flow is:
