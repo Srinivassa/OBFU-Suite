@@ -169,7 +169,8 @@ Final Gate-Level Netlist
 
 The complete batch synthesis script is available under:
 
-    scripts/synthesis/
+
+
 
 Run:
 
