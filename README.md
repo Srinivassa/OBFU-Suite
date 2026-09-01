@@ -351,23 +351,6 @@ python Main.py \
 
 The exact directory structure may vary between releases.
 
----
-
-## Release
-
-The benchmark release is available at:
-
-https://github.com/Srinivassa/OBFU-Suite/releases/tag/OBFU-Suite
-
----
-
-## Citation
-
-If you use OBFU-Suite in your work, please cite:
-
-
----
-
 ## Acknowledgement
 
 We acknowledge the developers of the hardware-security, HLS, RTL synthesis,
