@@ -273,7 +273,7 @@ python Main_rtl.py \
 
 ```bash
 python Main_rtl.py \
-  --file-name ASSURE_IIRB_100pct_1010 \
+  --file-name ASSURE_IIRB_100pct_0101 \
   --links-name link.txt \
   --only-predict \
   --split-val \
@@ -286,7 +286,7 @@ python Main_rtl.py \
   --num_mlp_layers 2 \
   --hidden_dim 64 \
   --final_dropout 0.5 \
-  > predict_ASSURE_IIRB_100pct_1010_rtl_b64_h3_6layers_hd64.txt 2>&1
+  > predict_ASSURE_IIRB_100pct_0101_rtl_b64_h3_6layers_hd64.txt 2>&1
 ```
 
 ### Gate-Level Demonstration:
